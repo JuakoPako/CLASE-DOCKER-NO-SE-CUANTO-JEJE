@@ -1,16 +1,19 @@
 name: Validar y simular un deploy
 
-on: 
-  push: 
+on:
+  push:
     branches: ["main"]
-permissions: 
+
+permissions:
   contents: read
+
 jobs:
   validar:
     runs-on: ubuntu-latest
     steps:
       - name: "Preparar Repositorio"
         uses: actions/checkout@v4
+
       - name: "Paso 1 Estructura de carpetas"
         run: |
           test -d app
@@ -20,4 +23,3 @@ jobs:
 
       - name: "construccion"
         run: docker compose build
-      
